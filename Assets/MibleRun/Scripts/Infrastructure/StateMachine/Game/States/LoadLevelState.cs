@@ -1,7 +1,12 @@
-﻿using Scripts.Infrastructure.Services.Factories.Game;
+﻿using System;
+using Scripts.Infrastructure.Services.Factories.Game;
 using Scripts.Infrastructure.Services.Factories.UIFactory;
 using Scripts.Infrastructure.Services.PersistenceProgress;
+using Scripts.Logic.CameraControl;
 using Scripts.Logic.HapticControl;
+using Scripts.Logic.PlayerControl.Spawn;
+using Unity.VisualScripting;
+using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
 
@@ -16,7 +21,7 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
         private readonly IGameFactory _gameFactory;
         private readonly DiContainer _container;
         private readonly IPersistenceProgressService _persistenceProgressService;
-        private ISoundEffectService _soundEffectService;
+        private readonly ISoundEffectService _soundEffectService;
 
         public LoadLevelState(IStateMachine<IGameState> gameStateMachine,
             ISceneLoader sceneLoader,
@@ -57,17 +62,37 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
         private void InitGameWorld()
         {
             _gameFactory.Clear();
+            
             InitHud();
             _uiFactory.CreateUiRoot();
 
             _soundEffectService.Refresh(_persistenceProgressService.PlayerData.ProgressData.IsSoundOn);
 
             InitPlayer();
+            InitCamera();
+        }
+
+        private void InitCamera()
+        {
+            CameraStateChanger cameraStateChanger = Object.FindObjectOfType<CameraStateChanger>();
+            if (cameraStateChanger == null)
+                throw new NullReferenceException("no camera state changer on scene");
+            
+            Transform target = _gameFactory.Player.transform;
+            if (target == null)
+                throw new NullReferenceException("no target for camera, create target first");
+            
+            cameraStateChanger.Initialize(target);
+            cameraStateChanger.SwitchTo(CameraViewState.Start, target);
         }
 
         private void InitPlayer()
         {
-            _gameFactory.CreatePlayer();
+            PlayerSpawnPoint playerSpawnPoint = Object.FindObjectOfType<PlayerSpawnPoint>();
+            if (playerSpawnPoint == null)
+                throw new NullReferenceException("no playerSpawnPoint on scene");
+            
+            _gameFactory.CreatePlayer(playerSpawnPoint.transform);
         }
 
         private void InitHud()

@@ -8,6 +8,6 @@ namespace Scripts.Infrastructure.Services.Factories.Game
         GameObject GameHud { get; }
         GameObject CreateHud();
         void Clear();
-        void CreatePlayer();
+        void CreatePlayer(Transform spawnPoint);
     }
 }

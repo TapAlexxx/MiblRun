@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MibleRun/Scenes/Initial.unity
+    guid: 308f15bb707ebd44c88f451cbd697092
+  - enabled: 1
+    path: Assets/MibleRun/Scenes/Game.unity
+    guid: 16e30dc7174d35042b4a7c91f4d362b3
   m_configObjects: {}

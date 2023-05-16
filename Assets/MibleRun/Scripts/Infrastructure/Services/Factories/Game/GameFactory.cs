@@ -18,10 +18,12 @@ namespace Scripts.Infrastructure.Services.Factories.Game
             _staticDataService = staticDataService;
         }
 
-        public void CreatePlayer()
+        public void CreatePlayer(Transform spawnPoint)
         {
             PlayerStaticData playerStaticData = _staticDataService.PlayerStaticData();
             Player = InstantiatePrefabOnActiveScene(playerStaticData.Prefab);
+            Player.transform.position = spawnPoint.position;
+            Player.transform.rotation = spawnPoint.rotation;
         }
 
         public GameObject CreateHud()

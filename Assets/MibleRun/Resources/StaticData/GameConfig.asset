@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialScene: Initial
   FirstScene: Game
-  CanLoadCurrentOpenedScene: 0
+  CanLoadCurrentOpenedScene: 1

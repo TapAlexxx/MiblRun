@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Scripts.Infrastructure.Services;
 using Scripts.Infrastructure.Services.ColorService;
 using Scripts.Infrastructure.Services.Factories.Game;
@@ -30,6 +31,8 @@ namespace Scripts.Infrastructure.Installers
             BindServices();
             BindGameStateMachine();
             BindGameStates();
+
+            DOTween.Init();
         }
 
         public void Initialize() =>
