@@ -62,14 +62,12 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
         private void InitGameWorld()
         {
             _gameFactory.Clear();
-            
-            InitHud();
             _uiFactory.CreateUiRoot();
-
             _soundEffectService.Refresh(_persistenceProgressService.PlayerData.ProgressData.IsSoundOn);
 
             InitPlayer();
             InitCamera();
+            InitHud();
         }
 
         private void InitPlayer()

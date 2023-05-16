@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6318080572666786308}
   - component: {fileID: 6622331391992495948}
   - component: {fileID: 6416604940796189829}
-  - component: {fileID: 8967771806374318677}
   - component: {fileID: 354315120028009216}
+  - component: {fileID: 2844333181970853010}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -37,10 +37,10 @@ RectTransform:
   m_Father: {fileID: 495694567234520241}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 225}
-  m_SizeDelta: {x: 716.0294, y: 200}
+  m_AnchorMin: {x: 0.25, y: 0.14535137}
+  m_AnchorMax: {x: 0.75000006, y: 0.21562162}
+  m_AnchoredPosition: {x: -0.5, y: -1}
+  m_SizeDelta: {x: -2.970581, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6318080572666786308
 CanvasRenderer:
@@ -124,19 +124,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8967771806374318677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570135732828684487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e66ef6623de4b2b8b0b76c648270d60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 6416604940796189829}
 --- !u!114 &354315120028009216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +139,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 10, y: -10}
   m_UseGraphicAlpha: 1
+--- !u!114 &2844333181970853010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570135732828684487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226371da0c4942d0855142ab1cafc5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 6416604940796189829}
 --- !u!1 &1356692276159424102
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next Level
+  m_text: Restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c04876a28ed53e344a723ce88ed34b45, type: 2}
   m_sharedMaterial: {fileID: 818121132301610794, guid: c04876a28ed53e344a723ce88ed34b45, type: 2}
@@ -227,8 +227,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294952960
-  m_fontColor: {r: 0, g: 0.78433895, b: 1, a: 1}
+    rgba: 4294958433
+  m_fontColor: {r: 0.38113207, g: 0.8665187, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
