@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eeb4eeb282a4095ad33131646196f53, type: 3}
-  m_Name: LevelData
+  m_Script: {fileID: 11500000, guid: a056cbc6f7864de5838fbe5041a69c98, type: 3}
+  m_Name: PlayerStaticData
   m_EditorClassIdentifier: 
-  TimeBetweenSpawn: 1
+  Prefab: {fileID: 2917192441763134712, guid: c91b1baf71db45749a3902aa916fafcf, type: 3}
+  Speed: 5
