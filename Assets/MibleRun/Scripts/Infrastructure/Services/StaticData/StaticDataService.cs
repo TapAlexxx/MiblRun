@@ -13,10 +13,12 @@ namespace Scripts.Infrastructure.Services.StaticData
         private const string GameConfigPath = "StaticData/GameConfig";
         private const string WindowsStaticDataPath = "StaticData/WindowsStaticData";
         private const string LevelStaticDataPath = "StaticData/LevelStaticData/LevelData";
+        private const string PlayerStaticDataPath = "StaticData/PlayerStaticData/PlayerStaticData";
 
         private GameStaticData _gameStaticData;
         private Dictionary<WindowTypeId, WindowConfig> _windowConfigs;
         private LevelStaticData _levelStaticData;
+        private PlayerStaticData _playerStaticData;
 
         public void LoadData()
         {
@@ -30,6 +32,9 @@ namespace Scripts.Infrastructure.Services.StaticData
 
             _levelStaticData = Resources
                 .Load<LevelStaticData>(LevelStaticDataPath);
+            
+            _playerStaticData = Resources
+                .Load<PlayerStaticData>(PlayerStaticDataPath);
         }
 
         public GameStaticData GameConfig() =>
@@ -38,7 +43,7 @@ namespace Scripts.Infrastructure.Services.StaticData
         public WindowConfig ForWindow(WindowTypeId windowTypeId) => 
             _windowConfigs[windowTypeId];
 
-        public LevelStaticData GetLevelStaticData() => 
-            _levelStaticData;
+        public PlayerStaticData PlayerStaticData() => 
+            _playerStaticData;
     }
 }

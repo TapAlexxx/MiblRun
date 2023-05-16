@@ -10,6 +10,6 @@ namespace Scripts.Infrastructure.Services.StaticData
         void LoadData();
         GameStaticData GameConfig();
         WindowConfig ForWindow(WindowTypeId windowTypeId);
-        LevelStaticData GetLevelStaticData();
+        PlayerStaticData PlayerStaticData();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Scripts.Infrastructure.Services.StaticData;
+using Scripts.StaticData.Level;
 using UnityEngine;
 using Zenject;
 
@@ -19,7 +20,8 @@ namespace Scripts.Infrastructure.Services.Factories.Game
 
         public void CreatePlayer()
         {
-            Player = InstantiatePrefabOnActiveScene(_staticDataService.GetLevelStaticData().Player);
+            PlayerStaticData playerStaticData = _staticDataService.PlayerStaticData();
+            Player = InstantiatePrefabOnActiveScene(playerStaticData.Prefab);
         }
 
         public GameObject CreateHud()
