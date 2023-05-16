@@ -92,7 +92,7 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
                 throw new NullReferenceException("no target for camera, create target first");
             
             cameraStateChanger.Initialize(target);
-            cameraStateChanger.SwitchTo(CameraViewState.Start, target);
+            cameraStateChanger.SwitchTo(CameraViewState.Start);
         }
 
         private void InitHud()
