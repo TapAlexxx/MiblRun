@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3505944557830288668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3505944557830288665}
+  - component: {fileID: 3505944557830288664}
+  - component: {fileID: 3505944557830288671}
+  - component: {fileID: 3505944557830288670}
+  - component: {fileID: 3505944557830288669}
+  m_Layer: 0
+  m_Name: Field
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3505944557830288665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505944557830288668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3505944557830288664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505944557830288668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a4759991a4fdda20d27163b09cf3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSizeX: {x: 4, y: 5}
+  defaultSizeY: {x: 4, y: 5}
+  hardSizeX: {x: 6, y: 7}
+  hardSizeY: {x: 8, y: 10}
+  cubeSize: 1
+  pool: {fileID: 3505944557830288669}
+  field: {fileID: 3505944557830288670}
+  shikakuGenerator: {fileID: 3505944557830288671}
+  cameraPlacer: {fileID: 0}
+--- !u!114 &3505944557830288671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505944557830288668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c8893a0da0f4f7eb7d5c3e32f8f9480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squareInfos:
+  - Number: 2
+    SquareVariants:
+    - Width: 1
+      Height: 2
+    - Width: 2
+      Height: 1
+  - Number: 3
+    SquareVariants:
+    - Width: 1
+      Height: 3
+    - Width: 3
+      Height: 1
+  - Number: 4
+    SquareVariants:
+    - Width: 2
+      Height: 2
+    - Width: 1
+      Height: 4
+    - Width: 4
+      Height: 1
+  - Number: 5
+    SquareVariants:
+    - Width: 1
+      Height: 5
+    - Width: 5
+      Height: 1
+  - Number: 6
+    SquareVariants:
+    - Width: 2
+      Height: 3
+    - Width: 3
+      Height: 2
+    - Width: 6
+      Height: 1
+    - Width: 1
+      Height: 6
+  - Number: 7
+    SquareVariants:
+    - Width: 1
+      Height: 7
+    - Width: 7
+      Height: 1
+  - Number: 8
+    SquareVariants:
+    - Width: 2
+      Height: 4
+    - Width: 4
+      Height: 2
+  - Number: 9
+    SquareVariants:
+    - Width: 3
+      Height: 3
+  - Number: 10
+    SquareVariants:
+    - Width: 2
+      Height: 5
+    - Width: 5
+      Height: 2
+  - Number: 11
+    SquareVariants:
+    - Width: 1
+      Height: 11
+    - Width: 11
+      Height: 1
+  - Number: 12
+    SquareVariants:
+    - Width: 2
+      Height: 6
+    - Width: 6
+      Height: 2
+    - Width: 3
+      Height: 4
+    - Width: 4
+      Height: 3
+  defaultNumberPool: 0200000003000000040000000500000006000000
+  hardNumberPool: 02000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+--- !u!114 &3505944557830288670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505944557830288668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0290e1cc5491410482ead59a4fc22519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3505944557830288669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505944557830288668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5977ec07c95d466eaa3081539745ad1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellPoolSize: 300
+  numberCellPoolSize: 200
+  cellPrefab: {fileID: 6787660665338548461, guid: 4cd2fd8f43662cb428452930906f31f5, type: 3}
+  numberCellPrefab: {fileID: 2683951484794664813, guid: 1ba851ac2ecb6cd498eb213b8414f946, type: 3}
