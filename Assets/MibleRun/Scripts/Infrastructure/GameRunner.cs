@@ -10,7 +10,7 @@ namespace Scripts.Infrastructure
 
         private void Awake()
         {
-            Application.targetFrameRate = 120;
+            Application.targetFrameRate = 1000;
             if (!FindObjectOfType<SceneContext>())
                 Instantiate(_defaultSceneContext);
 
