@@ -6,7 +6,5 @@ namespace Scripts.StaticData.Reward
     public class LevelReward
     {
         public CoinReward CoinReward;
-        public PointReward PointReward;
-        public PointReward GiftReward;
     }
 }
