@@ -154,7 +154,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 400
-  field of view: 85
+  field of view: 80
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -328,8 +328,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2466934567626662141}
-  - {fileID: 2466934568334075227}
   - {fileID: 6629906293369764042}
+  - {fileID: 2466934568334075227}
   - {fileID: 2466934567800074789}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -347,12 +347,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _virtualCamerasObjects:
-  - {fileID: 2466934568334075225}
   - {fileID: 8833696324697253263}
+  - {fileID: 2466934568334075225}
   - {fileID: 2466934567800074794}
   _virtualCameras:
-  - {fileID: 2466934568334075224}
   - {fileID: 6989493809458140827}
+  - {fileID: 2466934568334075224}
   - {fileID: 2466934567800074791}
 --- !u!1 &2466934568334075225
 GameObject:
@@ -386,7 +386,7 @@ Transform:
   m_Children:
   - {fileID: 7486914112730471544}
   m_Father: {fileID: 2466934567865274785}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2466934568334075224
 MonoBehaviour:
@@ -583,7 +583,7 @@ Transform:
   m_Children:
   - {fileID: 7102915417180069039}
   m_Father: {fileID: 2466934567865274785}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6989493809458140827
 MonoBehaviour:

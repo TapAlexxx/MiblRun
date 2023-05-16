@@ -72,6 +72,15 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
             InitCamera();
         }
 
+        private void InitPlayer()
+        {
+            PlayerSpawnPoint playerSpawnPoint = Object.FindObjectOfType<PlayerSpawnPoint>();
+            if (playerSpawnPoint == null)
+                throw new NullReferenceException("no playerSpawnPoint on scene");
+            
+            _gameFactory.CreatePlayer(playerSpawnPoint.transform);
+        }
+
         private void InitCamera()
         {
             CameraStateChanger cameraStateChanger = Object.FindObjectOfType<CameraStateChanger>();
@@ -84,15 +93,6 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
             
             cameraStateChanger.Initialize(target);
             cameraStateChanger.SwitchTo(CameraViewState.Start, target);
-        }
-
-        private void InitPlayer()
-        {
-            PlayerSpawnPoint playerSpawnPoint = Object.FindObjectOfType<PlayerSpawnPoint>();
-            if (playerSpawnPoint == null)
-                throw new NullReferenceException("no playerSpawnPoint on scene");
-            
-            _gameFactory.CreatePlayer(playerSpawnPoint.transform);
         }
 
         private void InitHud()
