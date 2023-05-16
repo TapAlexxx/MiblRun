@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Scripts.Logic.PlayerControl
+namespace Scripts.Logic.PlayerControl.PlayerInput
 {
     public class PlayerInput : MonoBehaviour
     {
@@ -17,5 +17,5 @@ namespace Scripts.Logic.PlayerControl
                 ButtonUp?.Invoke();
         }
     }
-    
+
 }

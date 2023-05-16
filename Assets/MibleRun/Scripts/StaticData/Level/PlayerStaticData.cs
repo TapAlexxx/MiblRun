@@ -7,7 +7,8 @@ namespace Scripts.StaticData.Level
     public class PlayerStaticData : ScriptableObject
     {
         public GameObject Prefab;
-        public float Speed;
+        public float MoveSpeed;
+        public float RotationSpeed;
     }
 
 }
