@@ -1,6 +1,9 @@
 ﻿using Scripts.Infrastructure.Services.Factories.Game;
 using Scripts.Infrastructure.Services.PersistenceProgress;
+using Scripts.Infrastructure.StateMachine;
+using Scripts.Infrastructure.StateMachine.Game.States;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
@@ -11,8 +14,7 @@ namespace Scripts.Logic.WindowControls
     {
         [SerializeField] private Button button;
         
-        private IGameFactory _gameFactory;
-        private IPersistenceProgressService _persistenceProgressService;
+        private IStateMachine<IGameState> _gameStateMachine;
 
         private void OnValidate()
         {
@@ -20,10 +22,9 @@ namespace Scripts.Logic.WindowControls
         }
 
         [Inject]
-        public void Construct(IGameFactory gameFactory, IPersistenceProgressService persistenceProgressService)
+        public void Construct(IStateMachine<IGameState> gameStateMachine)
         {
-            _persistenceProgressService = persistenceProgressService;
-            _gameFactory = gameFactory;
+            _gameStateMachine = gameStateMachine;
         }
 
         private void Start()
@@ -38,6 +39,7 @@ namespace Scripts.Logic.WindowControls
 
         private void Restart()
         {
+            _gameStateMachine.Enter<LoadLevelState, string>(SceneManager.GetActiveScene().name);
         }
     }
 
