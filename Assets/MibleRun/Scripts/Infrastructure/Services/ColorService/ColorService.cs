@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Scripts.Infrastructure.Services
+namespace Scripts.Infrastructure.Services.ColorService
 {
     public class ColorService : IColorService
     {
@@ -28,8 +28,4 @@ namespace Scripts.Infrastructure.Services
         }
     }
 
-    public interface IColorService
-    {
-        Color GetColorFor(int id);
-    }
 }

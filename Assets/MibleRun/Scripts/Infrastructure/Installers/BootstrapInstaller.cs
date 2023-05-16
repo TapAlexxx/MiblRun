@@ -1,4 +1,5 @@
 using Scripts.Infrastructure.Services;
+using Scripts.Infrastructure.Services.ColorService;
 using Scripts.Infrastructure.Services.Factories.Game;
 using Scripts.Infrastructure.Services.Factories.UIFactory;
 using Scripts.Infrastructure.Services.PersistenceProgress;
