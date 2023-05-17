@@ -42,20 +42,20 @@ namespace Scripts.Logic.Hud
         {
             if(!_active)
                 return;
-            
+            joystickBase.SetActive(IsOnDrag);
+
             if (StartDrag)
             {
                 joystickBaseRect.position = Input.mousePosition;
-                joystickBase.SetActive(true);
                 StartedDrag?.Invoke();
             }
 
             if (EndDrag)
             {
-                joystickBase.SetActive(false);
                 EndedDrag?.Invoke();
+                joystickBase.SetActive(false);
             }
-            
+
             if (IsOnDrag)
             {
                 RefreshTargetPosition();
