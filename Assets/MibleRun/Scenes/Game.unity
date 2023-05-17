@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2466934567626662114, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
       propertyPath: far clip plane
-      value: 1000
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2466934567626662140, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
       propertyPath: m_CustomBlends
@@ -308,11 +308,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2466934567626662141, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8870109
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2466934567626662141, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.46174863
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2466934567626662141, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
       propertyPath: m_LocalRotation.y
