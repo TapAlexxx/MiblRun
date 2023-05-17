@@ -1,5 +1,7 @@
 ﻿using System;
 using Cinemachine;
+using Scripts.Logic.Hud;
+using Scripts.Logic.PlayerControl;
 using UnityEngine;
 
 namespace Scripts.Logic.CameraControl
@@ -13,6 +15,30 @@ namespace Scripts.Logic.CameraControl
         private int[] _virtualCamerasID;
 
         private Transform _target;
+        private GameStarter _gameStarter;
+        private ExplosionObserver _playerExplosionObserver;
+
+        public void Construct(GameStarter gameStarter, ExplosionObserver playerExplosionObserver)
+        {
+            _playerExplosionObserver = playerExplosionObserver;
+            _gameStarter = gameStarter;
+            _gameStarter.GameStarted += SwitchToDefault;
+            _playerExplosionObserver.Exploded += SwitchToFinish;
+        }
+
+        private void OnDestroy()
+        {
+            if(_gameStarter)
+                _gameStarter.GameStarted -= SwitchToDefault;
+            if(_playerExplosionObserver)
+                _playerExplosionObserver.Exploded -= SwitchToFinish;
+        }
+
+        private void SwitchToDefault() => 
+            SwitchTo(CameraViewState.Default);
+
+        private void SwitchToFinish() => 
+            SwitchTo(CameraViewState.Finish);
 
         public void Initialize(Transform target)
         {

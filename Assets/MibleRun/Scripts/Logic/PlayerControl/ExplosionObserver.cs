@@ -8,20 +8,26 @@ namespace Scripts.Logic.PlayerControl
 
     public class ExplosionObserver : MonoBehaviour
     {
+        private bool _exploded;
         public event Action Exploded;
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnControllerColliderHit(ControllerColliderHit hit)
         {
-            if (collision.collider.TryGetComponent(out Enemy enemy))
+            if(_exploded)
+                return;
+            
+            if (hit.collider.TryGetComponent(out Enemy enemy))
             {
                 enemy.Explode();
                 Exploded?.Invoke();
+                _exploded = true;
             }
             
-            if (collision.collider.TryGetComponent(out Bomb bomb))
+            if (hit.collider.TryGetComponent(out Bomb bomb))
             {
                 bomb.Explode();
                 Exploded?.Invoke();
+                _exploded = true;
             }
         }
     }

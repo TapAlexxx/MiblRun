@@ -29,8 +29,12 @@ namespace Scripts.Logic.Unit
         public void Initialize(float speed) => 
             _speed = speed;
 
-        public void SetMovementDirection(Vector3 direction) =>
+        public void SetMovementDirection(Vector3 direction)
+        {
+            if(!_active) 
+                return;
             _direction = direction;
+        }
 
         public void Activate() => 
             _active = true;
@@ -38,13 +42,11 @@ namespace Scripts.Logic.Unit
         public void Disable()
         {
             _active = false;
-            characterController.Move(Vector3.zero);
+            _direction = Vector3.zero;
         }
 
         private void Update()
         {
-            if(!_active)
-                return;
             Move();
         }
 

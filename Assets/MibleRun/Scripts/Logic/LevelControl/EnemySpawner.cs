@@ -57,11 +57,12 @@ namespace Scripts.Logic.LevelControl
                 }
                 else
                 {
-                    if (enemyPool.TryGetEnemy(out Enemy bomb))
+                    if (enemyPool.TryGetEnemy(out Enemy enemy))
                     {
                         Vector2 randomPos = GetRandomPosition();
-                        bomb.transform.localPosition = new Vector3(randomPos.x, Constants.EnemyDefaultY,randomPos.y);
-                        bomb.gameObject.SetActive(true);
+                        enemy.transform.localPosition = new Vector3(randomPos.x, Constants.EnemyDefaultY,randomPos.y);
+                        enemy.gameObject.SetActive(true);
+                        enemy.Activate();
                     }
                     else
                     {

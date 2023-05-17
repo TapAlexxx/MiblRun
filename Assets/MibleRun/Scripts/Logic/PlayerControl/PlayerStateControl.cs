@@ -1,4 +1,5 @@
-﻿using Scripts.Infrastructure.Services.Window;
+﻿using Scripts.Infrastructure.Services.Factories.Game;
+using Scripts.Infrastructure.Services.Window;
 using Scripts.Logic.Unit;
 using Scripts.Window;
 using UnityEngine;
@@ -11,17 +12,21 @@ namespace Scripts.Logic.PlayerControl
     {
         [SerializeField] private ExplosionObserver explosionObserver;
         [SerializeField] private UnitMovement unitMovement;
+        
         private IWindowService _windowService;
         private bool _enteredFinish;
+        private IGameFactory _gameFactory;
 
         private void OnValidate()
         {
             if (!explosionObserver) TryGetComponent(out explosionObserver);
+            if (!unitMovement) TryGetComponent(out unitMovement);
         }
 
         [Inject]
-        public void Construct(IWindowService windowService)
+        public void Construct(IWindowService windowService, IGameFactory gameFactory)
         {
+            _gameFactory = gameFactory;
             _windowService = windowService;
         }
         
@@ -46,6 +51,7 @@ namespace Scripts.Logic.PlayerControl
                 return;
             
             unitMovement.Disable();
+            _gameFactory.GameHud.SetActive(false);
             _windowService.Open(WindowTypeId.Finish);
             _enteredFinish = true;
         }

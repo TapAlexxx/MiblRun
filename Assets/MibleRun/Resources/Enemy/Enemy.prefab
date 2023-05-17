@@ -6427,6 +6427,7 @@ MonoBehaviour:
   enemyMover: {fileID: 4128233179859490807}
   enemyRenderer: {fileID: 7542806838294139513}
   color: {r: 0, g: 0, b: 0, a: 0}
+  explodeParticle: {fileID: 8143869280887742368}
 --- !u!114 &4128233179859490807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8081,6 +8082,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+--- !u!198 &8143869280887742368 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+  m_PrefabInstance: {fileID: 8339463648122772550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8337728598050954014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010212820824, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}

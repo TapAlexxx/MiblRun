@@ -18,6 +18,8 @@ namespace Scripts.Logic.Hud
         private PlayerStateControl _stateControl;
         private EnemySpawner _enemySpawner;
 
+        public event Action GameStarted;
+
         [Inject]
         public void Construct(IGameFactory gameFactory)
         {
@@ -27,19 +29,20 @@ namespace Scripts.Logic.Hud
 
         private void Start()
         {
-            button.onClick.AddListener(EnterRideState);
+            button.onClick.AddListener(EnterMoveState);
             text.DOFade(1f, 1f).SetLoops(-1, LoopType.Yoyo);
         }
 
         private void OnDestroy() => 
-            button.onClick.RemoveListener(EnterRideState);
+            button.onClick.RemoveListener(EnterMoveState);
 
-        private void EnterRideState()
+        private void EnterMoveState()
         {
             text.gameObject.SetActive(false);
             button.gameObject.SetActive(false);
             _stateControl.EnterMoveState();
             _enemySpawner.SpawnEnemies();
+            GameStarted?.Invoke();
         }
     }
 

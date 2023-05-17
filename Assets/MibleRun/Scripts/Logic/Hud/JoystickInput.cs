@@ -8,8 +8,10 @@ namespace Scripts.Logic.Hud
         [SerializeField] private GameObject joystickBase;
         [SerializeField] private RectTransform joystickBaseRect;
         [SerializeField] private RectTransform stickRect;
+        [SerializeField] private GameStarter gameStarter;
 
         private Vector3 _targetPosition;
+        private bool _active;
 
         private bool StartDrag => Input.GetMouseButtonDown(0);
         private bool EndDrag => Input.GetMouseButtonUp(0);
@@ -20,9 +22,27 @@ namespace Scripts.Logic.Hud
         
         public event Action StartedDrag;
         public event Action EndedDrag;
-        
+
+        private void Start()
+        {
+            gameStarter.GameStarted += Activate;
+        }
+
+        private void OnDestroy()
+        {
+            gameStarter.GameStarted -= Activate;
+        }
+
+        private void Activate()
+        {
+            _active = true;
+        }
+
         private void Update()
         {
+            if(!_active)
+                return;
+            
             if (StartDrag)
             {
                 joystickBaseRect.position = Input.mousePosition;

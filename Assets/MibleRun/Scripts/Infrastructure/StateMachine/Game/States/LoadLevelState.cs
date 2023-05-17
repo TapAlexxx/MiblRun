@@ -3,6 +3,8 @@ using Scripts.Infrastructure.Services.Factories.Game;
 using Scripts.Infrastructure.Services.Factories.UIFactory;
 using Scripts.Infrastructure.Services.PersistenceProgress;
 using Scripts.Logic.CameraControl;
+using Scripts.Logic.Hud;
+using Scripts.Logic.PlayerControl;
 using Scripts.Logic.PlayerControl.Spawn;
 using UnityEngine;
 using Zenject;
@@ -61,10 +63,10 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
             _uiFactory.CreateUiRoot();
 
             InitPlayer();
-            InitCamera();
             InitBombSpawner();
             InitEnemySpawner();
             InitHud();
+            InitCamera();
         }
 
         private void InitEnemySpawner()
@@ -89,15 +91,22 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
         private void InitCamera()
         {
             CameraStateChanger cameraStateChanger = Object.FindObjectOfType<CameraStateChanger>();
+            Transform target = _gameFactory.Player.transform;
+            GameStarter gameStarter = _gameFactory.GameHud.GetComponentInChildren<GameStarter>();
+            ExplosionObserver playerExplosionObserver = _gameFactory.Player.GetComponent<ExplosionObserver>();
+            
             if (cameraStateChanger == null)
                 throw new NullReferenceException("no camera state changer on scene");
-            
-            Transform target = _gameFactory.Player.transform;
             if (target == null)
                 throw new NullReferenceException("no target for camera, create target first");
+            if (gameStarter == null)
+                throw new NullReferenceException("no gameStarter for camera, create gameStarter first");
+            if (playerExplosionObserver == null)
+                throw new NullReferenceException("no playerExplosionObserver for camera, create playerExplosionObserver first");
             
+            cameraStateChanger.Construct(gameStarter, playerExplosionObserver);
             cameraStateChanger.Initialize(target);
-            cameraStateChanger.SwitchTo(CameraViewState.Default);
+            cameraStateChanger.SwitchTo(CameraViewState.Start);
         }
 
         private void InitHud()

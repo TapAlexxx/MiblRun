@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Scripts.Logic.EnemyControl
@@ -24,7 +25,14 @@ namespace Scripts.Logic.EnemyControl
 
         public void Explode()
         {
+            explodeParticle.transform.SetParent(null);
             explodeParticle.Play();
+            transform.DOScale(Vector3.zero, 0.2f).OnComplete(() => { gameObject.SetActive(false); });
+        }
+
+        public void Activate()
+        {
+            enemyMover.StartMove();
         }
     }
 

@@ -6,5 +6,6 @@
         public const float EnemyDefaultY = 0f;
         public const float BombDefaultSize = 1.3f;
         public const float BombDefaultY = 0.3f;
+        public const int SecondsInMinute = 60;
     }
 }
