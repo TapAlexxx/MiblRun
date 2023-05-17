@@ -41,8 +41,6 @@ namespace Scripts.Logic.Hud
             float currentBest = _persistenceProgressService.PlayerData.ProgressData.BestTime;
             float current = _persistenceProgressService.PlayerData.ProgressData.CurrentTime;
 
-            Debug.Log(current);
-            Debug.Log(_persistenceProgressService.PlayerData.ProgressData.CurrentTime);
             bestText.text = current >= currentBest 
                 ? "NEW BEST!" 
                 : $"BEST: {_timeConverter.ConvertToText(currentBest)}";
