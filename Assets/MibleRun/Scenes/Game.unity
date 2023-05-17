@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSpawnPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4023742585073011193, guid: 8eb8bd6a8c8a5e24cb144db7a9b7bd74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4023742585073011198, guid: 8eb8bd6a8c8a5e24cb144db7a9b7bd74, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -290,6 +294,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 2466934567626662140, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
+      propertyPath: m_CustomBlends
+      value: 
+      objectReference: {fileID: 11400000, guid: a050966d373b7a2408a8a6983ca24854, type: 2}
     - target: {fileID: 2466934567626662141, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -361,6 +369,10 @@ PrefabInstance:
     - target: {fileID: 2466934567865274790, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
       propertyPath: m_Name
       value: Camera_container
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466934567865274790, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2466934568334075227, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -523,6 +535,10 @@ PrefabInstance:
     - target: {fileID: 8901487831926278199, guid: e1d883aaf6f5358459e00b0810eca38e, type: 3}
       propertyPath: m_Name
       value: GameRunner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8901487831926278199, guid: e1d883aaf6f5358459e00b0810eca38e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8901487831926278199, guid: e1d883aaf6f5358459e00b0810eca38e, type: 3}
       propertyPath: m_StaticEditorFlags

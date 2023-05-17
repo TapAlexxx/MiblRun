@@ -22,14 +22,14 @@ namespace Scripts.Logic.CameraControl
         {
             _playerExplosionObserver = playerExplosionObserver;
             _gameStarter = gameStarter;
-            _gameStarter.GameStarted += SwitchToDefault;
+            _gameStarter.NeedToSwitchCamera += SwitchToDefault;
             _playerExplosionObserver.Exploded += SwitchToFinish;
         }
 
         private void OnDestroy()
         {
             if(_gameStarter)
-                _gameStarter.GameStarted -= SwitchToDefault;
+                _gameStarter.NeedToSwitchCamera -= SwitchToDefault;
             if(_playerExplosionObserver)
                 _playerExplosionObserver.Exploded -= SwitchToFinish;
         }

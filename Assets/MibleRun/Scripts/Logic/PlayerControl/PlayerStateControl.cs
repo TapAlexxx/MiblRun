@@ -1,6 +1,9 @@
-﻿using Scripts.Infrastructure.Services.Factories.Game;
+﻿using System.Collections;
+using DG.Tweening;
+using Scripts.Infrastructure.Services.Factories.Game;
 using Scripts.Infrastructure.Services.Window;
 using Scripts.Logic.Unit;
+using Scripts.StaticClasses;
 using Scripts.Window;
 using UnityEngine;
 using Zenject;
@@ -51,9 +54,16 @@ namespace Scripts.Logic.PlayerControl
                 return;
             
             unitMovement.Disable();
-            _gameFactory.GameHud.SetActive(false);
-            _windowService.Open(WindowTypeId.Finish);
             _enteredFinish = true;
+            StartCoroutine(OpenWithDelay());
+        }
+
+        private IEnumerator OpenWithDelay()
+        {
+            yield return new WaitForSeconds(Constants.DelayBeforeDisableHud);
+            _gameFactory.GameHud.gameObject.SetActive(false);
+            yield return new WaitForSeconds(Constants.DelayBeforeFinishWindow);
+            _windowService.Open(WindowTypeId.Finish);
         }
     }
 

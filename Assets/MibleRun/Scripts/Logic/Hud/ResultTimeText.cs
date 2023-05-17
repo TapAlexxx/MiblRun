@@ -26,14 +26,24 @@ namespace Scripts.Logic.Hud
             _timeConverter = new TimeConverter();
 
             RefreshText();
+            _persistenceProgressService.PlayerData.ProgressData.BestTimeChanged += RefreshText;
+            _persistenceProgressService.PlayerData.ProgressData.CurrentTimeChanged += RefreshText;
+        }
+
+        private void OnDestroy()
+        {
+            _persistenceProgressService.PlayerData.ProgressData.BestTimeChanged -= RefreshText;
+            _persistenceProgressService.PlayerData.ProgressData.CurrentTimeChanged -= RefreshText;
         }
 
         private void RefreshText()
         {
             float currentBest = _persistenceProgressService.PlayerData.ProgressData.BestTime;
             float current = _persistenceProgressService.PlayerData.ProgressData.CurrentTime;
-            
-            bestText.text = current > currentBest 
+
+            Debug.Log(current);
+            Debug.Log(_persistenceProgressService.PlayerData.ProgressData.CurrentTime);
+            bestText.text = current >= currentBest 
                 ? "NEW BEST!" 
                 : $"BEST: {_timeConverter.ConvertToText(currentBest)}";
             

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using DG.Tweening;
 using Scripts.Infrastructure.Services.Factories.Game;
 using Scripts.Logic.LevelControl;
 using Scripts.Logic.PlayerControl;
+using Scripts.StaticClasses;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -17,8 +19,10 @@ namespace Scripts.Logic.Hud
 
         private PlayerStateControl _stateControl;
         private EnemySpawner _enemySpawner;
+        private Coroutine _startCoroutine;
 
         public event Action GameStarted;
+        public event Action NeedToSwitchCamera;
 
         [Inject]
         public void Construct(IGameFactory gameFactory)
@@ -38,7 +42,16 @@ namespace Scripts.Logic.Hud
 
         private void EnterMoveState()
         {
+            if (_startCoroutine != null)
+                return;
+            _startCoroutine = StartCoroutine(StartGame());
+        }
+
+        private IEnumerator StartGame()
+        {
             text.gameObject.SetActive(false);
+            NeedToSwitchCamera?.Invoke();
+            yield return new WaitForSeconds(Constants.BlendToDefaultTime);
             button.gameObject.SetActive(false);
             _stateControl.EnterMoveState();
             _enemySpawner.SpawnEnemies();

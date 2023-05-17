@@ -7,5 +7,8 @@
         public const float BombDefaultSize = 1.3f;
         public const float BombDefaultY = 0.3f;
         public const int SecondsInMinute = 60;
+        public const float DelayBeforeFinishWindow = 2f;
+        public const float DelayBeforeDisableHud = 0.1f;
+        public const float BlendToDefaultTime = 2f;
     }
 }

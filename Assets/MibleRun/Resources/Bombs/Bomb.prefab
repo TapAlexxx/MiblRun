@@ -92,8 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1438302082176501125}
-  - component: {fileID: 681443441175658066}
   - component: {fileID: -7412970515891819035}
+  - component: {fileID: 4051796294036988753}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -108,9 +108,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782916048201555775}
-  m_LocalRotation: {x: -0.114298515, y: 0.52002835, z: -0.30739728, w: -0.78867817}
+  m_LocalRotation: {x: 0.10255026, y: 0.5224728, z: 0.03259553, w: -0.8458387}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 570801920506636513}
@@ -120,20 +120,7 @@ Transform:
   - {fileID: 645102231807167133}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 30, y: 300, z: 25}
---- !u!135 &681443441175658066
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782916048201555775}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -11.978, y: 296.273, z: 3.048}
 --- !u!114 &-7412970515891819035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +134,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 739301745500048931}
+--- !u!135 &4051796294036988753
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782916048201555775}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2107515515453139122
 GameObject:
   m_ObjectHideFlags: 0

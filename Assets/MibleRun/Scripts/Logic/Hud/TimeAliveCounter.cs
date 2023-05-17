@@ -36,8 +36,8 @@ namespace Scripts.Logic.Hud
         
         private void Start()
         {
-            gameStarter.GameStarted += StartCount;
             Initialize();
+            gameStarter.GameStarted += StartCount;
         }
 
         private void OnDestroy()
@@ -71,7 +71,7 @@ namespace Scripts.Logic.Hud
                 timerText.text = _timeConverter.ConvertToText(CurrentTime);
                 yield return null;
             }
-            
+
             TrySaveBest();
         }
 
@@ -79,9 +79,10 @@ namespace Scripts.Logic.Hud
         {
             if (CurrentTime > _persistenceProgressService.PlayerData.ProgressData.BestTime)
             {
-                _persistenceProgressService.PlayerData.ProgressData.BestTime = CurrentTime;
+                _persistenceProgressService.PlayerData.ProgressData.UpdateBest(CurrentTime);
             }
-            _persistenceProgressService.PlayerData.ProgressData.CurrentTime = CurrentTime;
+
+            _persistenceProgressService.PlayerData.ProgressData.UpdateCurrentTime(CurrentTime);
             _saveLoadService.SaveProgress();
         }
     }

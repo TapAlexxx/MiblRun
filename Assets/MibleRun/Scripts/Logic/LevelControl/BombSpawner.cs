@@ -54,6 +54,7 @@ namespace Scripts.Logic.LevelControl
                 {
                     Vector2 randomPos = GetRandomPosition();
                     bomb.transform.localPosition = new Vector3(randomPos.x, Constants.BombDefaultY,randomPos.y);
+                    bomb.transform.eulerAngles = GetRandomRotation(bomb);
                     bomb.gameObject.SetActive(true);
                     bomb.transform.DOScale(Constants.BombDefaultSize, 0.3f);
                 }
@@ -70,6 +71,12 @@ namespace Scripts.Logic.LevelControl
             }
 
             return randomPos;
+        }
+
+        private Vector3 GetRandomRotation(Bomb bomb)
+        {
+            Vector3 eulerAngles = bomb.transform.eulerAngles;
+            return new Vector3(eulerAngles.x, Random.Range(0, 360f), eulerAngles.z);
         }
     }
 
