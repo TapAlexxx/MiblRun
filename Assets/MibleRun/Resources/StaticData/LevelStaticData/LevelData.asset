@@ -21,5 +21,5 @@ MonoBehaviour:
   EnemyPrefab: {fileID: -3149682700462855278, guid: 2b76cd7fc9698df47b42d2efe91c46da, type: 3}
   EnemyPoolSize: 20
   DelayBetweenSpawn: 0.5
-  EnemyMoveSpeed: 6
-  EnemyRotationSpeed: 10
+  EnemyMoveSpeed: 4
+  EnemyRotationSpeed: 8
