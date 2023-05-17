@@ -1782,6 +1782,7 @@ GameObject:
   - component: {fileID: 4623879910069921286}
   - component: {fileID: 1642545659581414524}
   - component: {fileID: 5322009034362521414}
+  - component: {fileID: 3698334085795107354}
   - component: {fileID: 171280924768816491}
   - component: {fileID: 4693530492338809474}
   - component: {fileID: 4677759712080030903}
@@ -1847,12 +1848,26 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 3.57
-  m_Radius: 0.6
+  m_Radius: 0.55
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.9, z: 0}
+--- !u!136 &3698334085795107354
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5431485097401924796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.8
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &171280924768816491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1947,7 +1962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionObserver: {fileID: 7029325488516647373}
-  unitMovement: {fileID: 0}
+  unitMovement: {fileID: 171280924768816491}
 --- !u!114 &7029325488516647373
 MonoBehaviour:
   m_ObjectHideFlags: 0

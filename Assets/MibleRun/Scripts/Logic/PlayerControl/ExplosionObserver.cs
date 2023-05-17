@@ -15,17 +15,23 @@ namespace Scripts.Logic.PlayerControl
         {
             if(_exploded)
                 return;
-            
-            if (hit.collider.TryGetComponent(out Enemy enemy))
-            {
-                enemy.Explode();
-                Exploded?.Invoke();
-                _exploded = true;
-            }
-            
+
             if (hit.collider.TryGetComponent(out Bomb bomb))
             {
                 bomb.Explode();
+                Exploded?.Invoke();
+                _exploded = true;
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if(_exploded)
+                return;
+            
+            if (other.TryGetComponent(out Enemy enemy))
+            {
+                enemy.Explode();
                 Exploded?.Invoke();
                 _exploded = true;
             }

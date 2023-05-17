@@ -15,11 +15,11 @@ MonoBehaviour:
   SpawnRadius: 50
   BombSpawner: {fileID: 2083837739427431261, guid: 995f73624aa97634f8b8e77e27f95b0e, type: 3}
   BombPrefab: {fileID: -7412970515891819035, guid: 4112d784cac2b8644ace7b14f124e251, type: 3}
-  BombPoolSize: 100
-  BombCount: 75
+  BombPoolSize: 25
+  BombCount: 25
   EnemySpawner: {fileID: 406362880137206587, guid: f02cdf4b8071b224c92ac6c196586e21, type: 3}
   EnemyPrefab: {fileID: -3149682700462855278, guid: 2b76cd7fc9698df47b42d2efe91c46da, type: 3}
-  EnemyPoolSize: 30
+  EnemyPoolSize: 20
   DelayBetweenSpawn: 0.5
   EnemyMoveSpeed: 6
   EnemyRotationSpeed: 10
