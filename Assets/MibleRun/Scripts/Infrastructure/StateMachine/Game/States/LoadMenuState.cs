@@ -29,7 +29,7 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
         private void OnLevelLoad()
         {
             _uiFactory.CreateUiRoot();
-            _windowService.Open(WindowTypeId.Win);
+            _windowService.Open(WindowTypeId.Finish);
             
             _loadingCurtain.Hide();
         }

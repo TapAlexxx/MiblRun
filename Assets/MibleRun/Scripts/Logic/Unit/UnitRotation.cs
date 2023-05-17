@@ -10,8 +10,8 @@ namespace Scripts.Logic.Unit
         private Vector3 _direction = Vector3.zero;
         private float _rotationSpeed;
 
-        public void Initialize(PlayerStaticData playerStaticData) => 
-            _rotationSpeed = playerStaticData.RotationSpeed;
+        public void Initialize(float speed) =>
+            _rotationSpeed = speed;
 
         public void SetRotationDirection(Vector3 direction) => 
             _direction = direction;

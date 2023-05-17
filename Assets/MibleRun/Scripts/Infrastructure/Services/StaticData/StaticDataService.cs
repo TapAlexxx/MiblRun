@@ -45,5 +45,8 @@ namespace Scripts.Infrastructure.Services.StaticData
 
         public PlayerStaticData PlayerStaticData() => 
             _playerStaticData;
+
+        public LevelStaticData GetLevelStaticData() => 
+            _levelStaticData;
     }
 }

@@ -15,7 +15,8 @@ namespace Scripts.Logic.Unit
         private Vector3 _direction = Vector3.zero;
         private Vector3 _targetVelocity;
         private float _speed;
-        
+        private bool _active;
+
         public float Speed => _speed;
         public float Velocity => characterController.velocity.sqrMagnitude;
         public Vector3 Direction => _direction;
@@ -25,14 +26,27 @@ namespace Scripts.Logic.Unit
             if (!characterController) TryGetComponent(out characterController);
         }
 
-        public void Initialize(PlayerStaticData playerStaticData) => 
-            _speed = playerStaticData.MoveSpeed;
+        public void Initialize(float speed) => 
+            _speed = speed;
 
         public void SetMovementDirection(Vector3 direction) =>
             _direction = direction;
 
-        private void Update() => 
+        public void Activate() => 
+            _active = true;
+
+        public void Disable()
+        {
+            _active = false;
+            characterController.Move(Vector3.zero);
+        }
+
+        private void Update()
+        {
+            if(!_active)
+                return;
             Move();
+        }
 
         private void Move()
         {

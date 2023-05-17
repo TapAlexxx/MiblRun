@@ -1,5 +1,8 @@
 ﻿using System;
 using Scripts.Infrastructure.Services.StaticData;
+using Scripts.Logic.EnemyControl;
+using Scripts.Logic.LevelControl;
+using Scripts.Logic.PlayerControl;
 using Scripts.Logic.PlayerControl.PlayerInput;
 using Scripts.Logic.Unit;
 using Scripts.StaticData.Level;
@@ -14,7 +17,8 @@ namespace Scripts.Infrastructure.Services.Factories.Game
 
         public GameObject Player { get; private set; }
         public GameObject GameHud { get; private set; }
-        
+        public EnemySpawner EnemySpawner { get; private set; }
+
 
         public GameFactory(IInstantiator instantiator, IStaticDataService staticDataService) : base(instantiator)
         {
@@ -27,17 +31,45 @@ namespace Scripts.Infrastructure.Services.Factories.Game
             Player = InstantiatePrefabOnActiveScene(playerStaticData.Prefab);
             Player.transform.position = spawnPoint.position;
             Player.transform.rotation = spawnPoint.rotation;
-
-            InitUnit(Player, playerStaticData);
+            Player.GetComponent<PlayerHealth>().Revive();
+            
+            InitUnit(Player, playerStaticData.MoveSpeed, playerStaticData.RotationSpeed);
         }
 
-        private void InitUnit(GameObject unit, PlayerStaticData staticData)
+        public void CreateBombSpawner()
+        {
+            LevelStaticData levelStaticData = _staticDataService.GetLevelStaticData();
+            GameObject bombSpawner = InstantiatePrefabOnActiveScene(levelStaticData.BombSpawner);
+            bombSpawner.GetComponent<BombSpawner>().Initialize(levelStaticData);
+        }
+
+        public void CreateEnemySpawner()
+        {
+            LevelStaticData levelStaticData = _staticDataService.GetLevelStaticData();
+            GameObject enemySpawnerObject = InstantiatePrefabOnActiveScene(levelStaticData.EnemySpawner);
+            EnemySpawner enemySpawner = enemySpawnerObject.GetComponent<EnemySpawner>();
+            enemySpawner.Initialize(levelStaticData, Player.transform);
+            EnemySpawner = enemySpawner;
+        }
+
+        public Enemy CreateEnemy(Transform parent)
+        {
+            LevelStaticData levelStaticData = _staticDataService.GetLevelStaticData();
+            GameObject enemyObject = InstantiatePrefabOnActiveScene(levelStaticData.EnemyPrefab.gameObject);
+            InitUnit(enemyObject, levelStaticData.EnemyMoveSpeed, levelStaticData.EnemyRotationSpeed);
+            Enemy enemy = enemyObject.GetComponent<Enemy>();
+            enemy.Initialize(Player.transform);
+            
+            return enemy;
+        }
+
+        private void InitUnit(GameObject unit, float moveSpeed, float rotationSpeed)
         {
             UnitMovement unitMovement = unit.GetComponent<UnitMovement>();
-            unitMovement.Initialize(staticData);
+            unitMovement.Initialize(moveSpeed);
             
             UnitRotation unitRotation = unit.GetComponent<UnitRotation>();
-            unitRotation.Initialize(staticData);
+            unitRotation.Initialize(rotationSpeed);
         }
 
         public GameObject CreateHud()

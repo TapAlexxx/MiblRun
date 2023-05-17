@@ -3,9 +3,7 @@ using Scripts.Infrastructure.Services.Factories.Game;
 using Scripts.Infrastructure.Services.Factories.UIFactory;
 using Scripts.Infrastructure.Services.PersistenceProgress;
 using Scripts.Logic.CameraControl;
-using Scripts.Logic.HapticControl;
 using Scripts.Logic.PlayerControl.Spawn;
-using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
@@ -21,15 +19,13 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
         private readonly IGameFactory _gameFactory;
         private readonly DiContainer _container;
         private readonly IPersistenceProgressService _persistenceProgressService;
-        private readonly ISoundEffectService _soundEffectService;
 
         public LoadLevelState(IStateMachine<IGameState> gameStateMachine,
             ISceneLoader sceneLoader,
             ILoadingCurtain loadingCurtain,
             IUIFactory uiFactory, IPersistenceProgressService persistenceProgressService,
-            IGameFactory gameFactory, DiContainer container, ISoundEffectService soundEffectService)
+            IGameFactory gameFactory, DiContainer container)
         {
-            _soundEffectService = soundEffectService;
             _persistenceProgressService = persistenceProgressService;
             _container = container;
             _gameStateMachine = gameStateMachine;
@@ -63,11 +59,22 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
         {
             _gameFactory.Clear();
             _uiFactory.CreateUiRoot();
-            _soundEffectService.Refresh(_persistenceProgressService.PlayerData.ProgressData.IsSoundOn);
 
             InitPlayer();
             InitCamera();
+            InitBombSpawner();
+            InitEnemySpawner();
             InitHud();
+        }
+
+        private void InitEnemySpawner()
+        {
+            _gameFactory.CreateEnemySpawner();
+        }
+
+        private void InitBombSpawner()
+        {
+            _gameFactory.CreateBombSpawner();
         }
 
         private void InitPlayer()
