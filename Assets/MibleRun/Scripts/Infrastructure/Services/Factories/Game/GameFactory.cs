@@ -25,12 +25,12 @@ namespace Scripts.Infrastructure.Services.Factories.Game
             _staticDataService = staticDataService;
         }
 
-        public void CreatePlayer(Transform spawnPoint)
+        public void CreatePlayer(Vector3 position, Quaternion rotation)
         {
             PlayerStaticData playerStaticData = _staticDataService.PlayerStaticData();
             Player = InstantiatePrefabOnActiveScene(playerStaticData.Prefab);
-            Player.transform.position = spawnPoint.position;
-            Player.transform.rotation = spawnPoint.rotation;
+            Player.transform.position = position;
+            Player.transform.rotation = rotation;
             Player.GetComponent<PlayerHealth>().Revive();
             
             InitUnit(Player, playerStaticData.MoveSpeed, playerStaticData.RotationSpeed);

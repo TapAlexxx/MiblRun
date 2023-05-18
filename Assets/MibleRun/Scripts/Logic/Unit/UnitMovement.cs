@@ -1,5 +1,4 @@
 ﻿using Scripts.StaticClasses;
-using Scripts.StaticData.Level;
 using UnityEngine;
 
 namespace Scripts.Logic.Unit
@@ -8,8 +7,8 @@ namespace Scripts.Logic.Unit
     public class UnitMovement : MonoBehaviour
     {
         [SerializeField] private float smoothness = 0.1f;
-        [SerializeField] private CharacterController characterController;
-
+        [SerializeField] private Rigidbody unitRigidbody;
+        
         private Vector3 _smoothedVelocity;
         private Vector3 _currentVelocity;
         private Vector3 _direction = Vector3.zero;
@@ -18,12 +17,12 @@ namespace Scripts.Logic.Unit
         private bool _active;
 
         public float Speed => _speed;
-        public float Velocity => characterController.velocity.sqrMagnitude;
+        public float NormalizedSpeed => _smoothedVelocity.magnitude / _speed;
         public Vector3 Direction => _direction;
 
         private void OnValidate()
         {
-            if (!characterController) TryGetComponent(out characterController);
+            if (!unitRigidbody) TryGetComponent(out unitRigidbody);
         }
 
         public void Initialize(float speed) => 
@@ -42,11 +41,15 @@ namespace Scripts.Logic.Unit
         public void Disable()
         {
             _active = false;
+            _smoothedVelocity = Vector3.zero;
             _direction = Vector3.zero;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
+            if(!_active)
+                return;
+            
             Move();
         }
 
@@ -58,10 +61,10 @@ namespace Scripts.Logic.Unit
                 _targetVelocity = _direction * _speed;
 
             _smoothedVelocity = Vector3
-                .SmoothDamp(_smoothedVelocity, _targetVelocity + Physics.gravity, ref _currentVelocity, smoothness);
-            
-            characterController
-                .Move(_smoothedVelocity * Time.deltaTime);
+                .SmoothDamp(_smoothedVelocity, _targetVelocity, ref _currentVelocity, smoothness);
+
+            var targetPosition = unitRigidbody.position + _smoothedVelocity * Time.deltaTime;
+            unitRigidbody.MovePosition(targetPosition);
         }
     }
 

@@ -17,7 +17,7 @@ namespace Scripts.Logic.Unit
 
         private void Update()
         {
-            if (unitMovement.Velocity > Constants.Epsilon) 
+            if (unitMovement.NormalizedSpeed > Constants.Epsilon) 
                 unitRotation.SetRotationDirection(unitMovement.Direction);
         }
     }

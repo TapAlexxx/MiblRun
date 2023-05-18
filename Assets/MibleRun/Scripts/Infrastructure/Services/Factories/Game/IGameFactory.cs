@@ -11,7 +11,7 @@ namespace Scripts.Infrastructure.Services.Factories.Game
         EnemySpawner EnemySpawner { get; }
         GameObject CreateHud();
         void Clear();
-        void CreatePlayer(Transform spawnPoint);
+        void CreatePlayer(Vector3 position, Quaternion rotation);
         void CreateBombSpawner();
         void CreateEnemySpawner();
         Enemy CreateEnemy(Transform parent);
