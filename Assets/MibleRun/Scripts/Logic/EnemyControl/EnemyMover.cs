@@ -1,6 +1,7 @@
 ﻿using System;
 using Scripts.Logic.PlayerControl;
 using Scripts.Logic.Unit;
+using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
@@ -25,7 +26,8 @@ namespace Scripts.Logic.EnemyControl
             _player = player;
             _playerHealth = _player.GetComponent<PlayerHealth>();
         }
-
+        
+        [BurstCompile]
         private struct DirectionJob : IJob
         {
             public Vector3 PlayerPosition;
