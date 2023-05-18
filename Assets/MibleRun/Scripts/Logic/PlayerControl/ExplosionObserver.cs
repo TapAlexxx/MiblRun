@@ -11,12 +11,9 @@ namespace Scripts.Logic.PlayerControl
         private bool _exploded;
         public event Action Exploded;
 
-        private void OnControllerColliderHit(ControllerColliderHit hit)
+        private void OnCollisionEnter(Collision collision)
         {
-            if(_exploded)
-                return;
-
-            if (hit.collider.TryGetComponent(out Bomb bomb))
+            if (collision.collider.TryGetComponent(out Bomb bomb))
             {
                 bomb.Explode();
                 Exploded?.Invoke();

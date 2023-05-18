@@ -26,20 +26,6 @@ namespace Scripts.Logic.EnemyControl
             _player = player;
             _playerHealth = _player.GetComponent<PlayerHealth>();
         }
-        
-        [BurstCompile]
-        private struct DirectionJob : IJob
-        {
-            public Vector3 PlayerPosition;
-            public Vector3 EnemyPosition;
-            public NativeArray<Vector3> Result;
-            
-            public void Execute()
-            {
-                Vector3 targetDirection = PlayerPosition - EnemyPosition;
-                Result[0] = targetDirection.normalized;
-            }
-        }
 
         private void Update()
         {
@@ -52,7 +38,11 @@ namespace Scripts.Logic.EnemyControl
                 return;
             }
 
-            NativeArray<Vector3> directionResult = new NativeArray<Vector3>(1, Allocator.TempJob);
+            Vector3 target = CalculateTargetDirection();
+            unitMovement.SetMovementDirection(target);
+
+            
+            /*NativeArray<Vector3> directionResult = new NativeArray<Vector3>(1, Allocator.TempJob);
             DirectionJob job = new DirectionJob
             {
                 PlayerPosition = _player.position,
@@ -63,7 +53,21 @@ namespace Scripts.Logic.EnemyControl
             
             directionJobHandle.Complete();
             unitMovement.SetMovementDirection(directionResult[0]);
-            directionResult.Dispose();
+            directionResult.Dispose();*/
+        }
+
+        [BurstCompile]
+        private struct DirectionJob : IJob
+        {
+            public Vector3 PlayerPosition;
+            public Vector3 EnemyPosition;
+            public NativeArray<Vector3> Result;
+            
+            public void Execute()
+            {
+                Vector3 targetDirection = PlayerPosition - EnemyPosition;
+                Result[0] = targetDirection.normalized;
+            }
         }
 
         private Vector3 CalculateTargetDirection()

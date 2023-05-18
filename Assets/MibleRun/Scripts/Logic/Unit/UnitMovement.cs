@@ -1,6 +1,5 @@
 ﻿using Scripts.Extensions;
 using Scripts.StaticClasses;
-using Scripts.StaticData.Level;
 using UnityEngine;
 
 namespace Scripts.Logic.Unit
@@ -8,7 +7,6 @@ namespace Scripts.Logic.Unit
 
     public class UnitMovement : MonoBehaviour
     {
-        public bool ShowDebug;
         [SerializeField] private float smoothness = 0.1f;
         [SerializeField] private Rigidbody unitRigidbody;
         
@@ -49,8 +47,6 @@ namespace Scripts.Logic.Unit
 
         private void FixedUpdate()
         {
-            if(ShowDebug)
-                Debug.Log(NormalizedSpeed);
             Move();
         }
 
@@ -67,8 +63,6 @@ namespace Scripts.Logic.Unit
             Vector3 targetPosition = unitRigidbody.position + _smoothedVelocity * Time.deltaTime;
             targetPosition.SetY(transform.position.y);
             unitRigidbody.MovePosition(targetPosition);
-            /*characterController
-                .Move(_smoothedVelocity * Time.deltaTime);*/
         }
     }
 

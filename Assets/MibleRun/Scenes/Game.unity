@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4023742585073011198, guid: 8eb8bd6a8c8a5e24cb144db7a9b7bd74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -74.4
       objectReference: {fileID: 0}
     - target: {fileID: 4023742585073011198, guid: 8eb8bd6a8c8a5e24cb144db7a9b7bd74, type: 3}
       propertyPath: m_LocalPosition.y
@@ -288,7 +288,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2466934567626662114, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
       propertyPath: field of view
-      value: 80
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 2466934567626662114, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
       propertyPath: far clip plane
@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: m_CustomBlends
       value: 
       objectReference: {fileID: 11400000, guid: a050966d373b7a2408a8a6983ca24854, type: 2}
+    - target: {fileID: 2466934567626662140, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
+      propertyPath: m_UpdateMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2466934567626662141, guid: 76509304b8f5e3e44b0c7c71d6b506de, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -475,7 +479,7 @@ Transform:
   m_GameObject: {fileID: 1245190214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 20, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1560764175}
@@ -633,7 +637,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29898
+  m_Name: pb_Mesh40496
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
