@@ -85,7 +85,7 @@ namespace Scripts.Infrastructure.StateMachine.Game.States
             if (playerSpawnPoint == null)
                 throw new NullReferenceException("no playerSpawnPoint on scene");
             
-            _gameFactory.CreatePlayer(playerSpawnPoint.transform);
+            _gameFactory.CreatePlayer(playerSpawnPoint.transform.position, playerSpawnPoint.transform.rotation);
         }
 
         private void InitCamera()
