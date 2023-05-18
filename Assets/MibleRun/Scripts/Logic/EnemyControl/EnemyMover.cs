@@ -29,7 +29,7 @@ namespace Scripts.Logic.EnemyControl
 
         private void Update()
         {
-            if(_player == null)
+            if (_player == null)
                 return;
 
             if (!_playerHealth.IsAlive)
@@ -40,34 +40,6 @@ namespace Scripts.Logic.EnemyControl
 
             Vector3 target = CalculateTargetDirection();
             unitMovement.SetMovementDirection(target);
-
-            
-            /*NativeArray<Vector3> directionResult = new NativeArray<Vector3>(1, Allocator.TempJob);
-            DirectionJob job = new DirectionJob
-            {
-                PlayerPosition = _player.position,
-                EnemyPosition =  transform.position,
-                Result = directionResult
-            };
-            JobHandle directionJobHandle = job.Schedule();
-            
-            directionJobHandle.Complete();
-            unitMovement.SetMovementDirection(directionResult[0]);
-            directionResult.Dispose();*/
-        }
-
-        [BurstCompile]
-        private struct DirectionJob : IJob
-        {
-            public Vector3 PlayerPosition;
-            public Vector3 EnemyPosition;
-            public NativeArray<Vector3> Result;
-            
-            public void Execute()
-            {
-                Vector3 targetDirection = PlayerPosition - EnemyPosition;
-                Result[0] = targetDirection.normalized;
-            }
         }
 
         private Vector3 CalculateTargetDirection()
